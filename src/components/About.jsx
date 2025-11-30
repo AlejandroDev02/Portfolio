@@ -15,12 +15,17 @@ const About = () => {
 const styles = {
     section: {
         padding: '4rem 2rem',
-        backgroundColor: '#2a2a2a',
+        // Glassmorphism styles
+        backgroundColor: 'rgba(42, 42, 42, 0.7)',
+        backdropFilter: 'blur(10px)',
         color: '#fff',
+        margin: '2rem auto',
+        borderRadius: '16px',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
+        maxWidth: '1200px', // Ensure the section itself doesn't stretch too wide if we want margins
     },
     container: {
-        maxWidth: '1200px',
-        width: '100%',
+        maxWidth: '100%',
         margin: '0 auto',
         textAlign: 'center',
     },

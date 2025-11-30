@@ -21,12 +21,17 @@ const Skills = () => {
 const styles = {
     section: {
         padding: '4rem 2rem',
-        backgroundColor: '#242424',
+        // Glassmorphism styles
+        backgroundColor: 'rgba(36, 36, 36, 0.7)',
+        backdropFilter: 'blur(10px)',
         color: '#fff',
+        margin: '2rem auto',
+        borderRadius: '16px',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
+        maxWidth: '1200px',
     },
     container: {
-        maxWidth: '1200px',
-        width: '100%',
+        maxWidth: '100%',
         margin: '0 auto',
         textAlign: 'center',
     },
@@ -41,11 +46,12 @@ const styles = {
         gap: '1rem',
     },
     skillCard: {
-        backgroundColor: '#333',
+        backgroundColor: 'rgba(255, 255, 255, 0.1)', // Lighter glass for cards
         padding: '1rem 2rem',
         borderRadius: '8px',
         fontSize: '1.1rem',
         boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+        backdropFilter: 'blur(5px)',
     }
 };
 

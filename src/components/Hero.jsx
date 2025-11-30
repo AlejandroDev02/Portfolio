@@ -20,8 +20,11 @@ const styles = {
         justifyContent: 'center',
         alignItems: 'center',
         textAlign: 'center',
-        backgroundColor: '#242424',
+        // Glassmorphism styles
+        backgroundColor: 'rgba(36, 36, 36, 0.2)', // Transparent for particle visibility
+        backdropFilter: 'blur(5px)',
         color: '#fff',
+        borderBottom: 'none',
     },
     content: {
         maxWidth: '1200px',

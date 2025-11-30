@@ -1,3 +1,4 @@
+import React from 'react';
 import { content } from '../data/content';
 
 const Contact = () => {
@@ -19,12 +20,17 @@ const Contact = () => {
 const styles = {
     section: {
         padding: '4rem 2rem',
-        backgroundColor: '#242424',
+        // Glassmorphism styles
+        backgroundColor: 'rgba(36, 36, 36, 0.7)',
+        backdropFilter: 'blur(10px)',
         color: '#fff',
+        margin: '2rem auto',
+        borderRadius: '16px',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
+        maxWidth: '1200px',
     },
     container: {
-        maxWidth: '1200px',
-        width: '100%',
+        maxWidth: '100%',
         margin: '0 auto',
         textAlign: 'center',
     },

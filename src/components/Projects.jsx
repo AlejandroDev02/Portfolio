@@ -34,12 +34,17 @@ const Projects = () => {
 const styles = {
     section: {
         padding: '4rem 2rem',
-        backgroundColor: '#2a2a2a',
+        // Glassmorphism styles
+        backgroundColor: 'rgba(42, 42, 42, 0.7)',
+        backdropFilter: 'blur(10px)',
         color: '#fff',
+        margin: '2rem auto',
+        borderRadius: '16px',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
+        maxWidth: '1200px',
     },
     container: {
-        maxWidth: '1200px',
-        width: '100%',
+        maxWidth: '100%',
         margin: '0 auto',
         textAlign: 'center',
     },
@@ -49,7 +54,7 @@ const styles = {
     },
     emptyState: {
         padding: '3rem',
-        backgroundColor: '#333',
+        backgroundColor: 'rgba(255, 255, 255, 0.05)',
         borderRadius: '12px',
         fontSize: '1.2rem',
         color: '#aaa',
@@ -60,11 +65,12 @@ const styles = {
         gap: '2rem',
     },
     card: {
-        backgroundColor: '#333',
+        backgroundColor: 'rgba(255, 255, 255, 0.05)',
         padding: '2rem',
         borderRadius: '12px',
         textAlign: 'left',
         boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+        backdropFilter: 'blur(5px)',
     },
     projectTitle: {
         fontSize: '1.5rem',
