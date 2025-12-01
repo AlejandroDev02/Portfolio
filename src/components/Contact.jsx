@@ -1,14 +1,15 @@
 import React from 'react';
-import { content } from '../data/content';
+import { useLanguage } from '../context/LanguageContext';
 
 const Contact = () => {
+    const { content } = useLanguage();
     const { contact } = content;
     return (
         <section id="contact" style={styles.section}>
             <div style={styles.container}>
                 <h2 style={styles.heading}>{contact.title}</h2>
                 <div style={styles.links}>
-                    <a href={`mailto:${contact.email}`} style={styles.button}>Email Me</a>
+                    <a href={`mailto:${contact.email}`} style={styles.button}>{contact.emailButton}</a>
                     <a href={contact.github} target="_blank" rel="noopener noreferrer" style={styles.button}>GitHub</a>
                     <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" style={styles.button}>LinkedIn</a>
                 </div>

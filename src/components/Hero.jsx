@@ -1,6 +1,7 @@
-import { content } from '../data/content';
+import { useLanguage } from '../context/LanguageContext';
 
 const Hero = () => {
+    const { content } = useLanguage();
     const { hero } = content;
     return (
         <section id="hero" style={styles.section}>

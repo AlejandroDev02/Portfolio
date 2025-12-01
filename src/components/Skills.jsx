@@ -1,13 +1,14 @@
-import { content } from '../data/content';
+import { useLanguage } from '../context/LanguageContext';
 
 const Skills = () => {
+    const { content } = useLanguage();
     const { skills } = content;
     return (
         <section id="skills" style={styles.section}>
             <div style={styles.container}>
-                <h2 style={styles.heading}>Skills</h2>
+                <h2 style={styles.heading}>{skills.title}</h2>
                 <div style={styles.grid}>
-                    {skills.map((skill, index) => (
+                    {skills.items.map((skill, index) => (
                         <div key={index} style={styles.skillCard}>
                             {skill}
                         </div>

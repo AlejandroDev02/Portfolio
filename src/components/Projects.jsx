@@ -1,20 +1,21 @@
-import { content } from '../data/content';
+import { useLanguage } from '../context/LanguageContext';
 
 const Projects = () => {
+    const { content } = useLanguage();
     const { projects } = content;
 
     return (
         <section id="projects" style={styles.section}>
             <div style={styles.container}>
-                <h2 style={styles.heading}>Projects</h2>
+                <h2 style={styles.heading}>{projects.title}</h2>
 
-                {projects.length === 0 ? (
+                {projects.items.length === 0 ? (
                     <div style={styles.emptyState}>
-                        <p>Currently working on some exciting projects. Check back soon!</p>
+                        <p>{projects.emptyState}</p>
                     </div>
                 ) : (
                     <div style={styles.grid}>
-                        {projects.map((project, index) => (
+                        {projects.items.map((project, index) => (
                             <div key={index} style={styles.card}>
                                 <h3 style={styles.projectTitle}>{project.title}</h3>
                                 <p style={styles.projectDesc}>{project.description}</p>

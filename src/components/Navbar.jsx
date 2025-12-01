@@ -1,13 +1,18 @@
+import { useLanguage } from '../context/LanguageContext';
+
 const Navbar = () => {
+    const { content } = useLanguage();
+    const { navbar } = content;
+
     return (
         <nav style={styles.nav}>
-            <div style={styles.logo}>Portfolio</div>
+            <div style={styles.logo}>{navbar.logo}</div>
             <ul style={styles.links}>
-                <li><a href="#hero" style={styles.link}>Home</a></li>
-                <li><a href="#about" style={styles.link}>About</a></li>
-                <li><a href="#skills" style={styles.link}>Skills</a></li>
-                <li><a href="#projects" style={styles.link}>Projects</a></li>
-                <li><a href="#contact" style={styles.link}>Contact</a></li>
+                <li><a href="#hero" style={styles.link}>{navbar.home}</a></li>
+                <li><a href="#about" style={styles.link}>{navbar.about}</a></li>
+                <li><a href="#skills" style={styles.link}>{navbar.skills}</a></li>
+                <li><a href="#projects" style={styles.link}>{navbar.projects}</a></li>
+                <li><a href="#contact" style={styles.link}>{navbar.contact}</a></li>
             </ul>
         </nav>
     );

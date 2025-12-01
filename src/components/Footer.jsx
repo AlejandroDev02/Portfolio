@@ -1,6 +1,7 @@
-import { content } from '../data/content';
+import { useLanguage } from '../context/LanguageContext';
 
 const Footer = () => {
+    const { content } = useLanguage();
     const { footer } = content;
     return (
         <footer style={styles.footer}>
