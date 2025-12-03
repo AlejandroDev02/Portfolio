@@ -35,18 +35,61 @@ const CursorFollower = () => {
 
             if (clickable) {
                 const rect = clickable.getBoundingClientRect();
+
+                let visibleLeft = rect.left;
+                let visibleTop = rect.top;
+                let visibleRight = rect.right;
+                let visibleBottom = rect.bottom;
+
+                // Walk up the DOM to check for clipping containers
+                let parent = clickable.parentElement;
+                while (parent && parent !== document.body) {
+                    const style = window.getComputedStyle(parent);
+                    const overflowX = style.overflowX;
+                    const overflowY = style.overflowY;
+
+                    if (overflowX === 'hidden' || overflowX === 'scroll' || overflowX === 'auto' ||
+                        overflowY === 'hidden' || overflowY === 'scroll' || overflowY === 'auto') {
+
+                        const parentRect = parent.getBoundingClientRect();
+                        visibleLeft = Math.max(visibleLeft, parentRect.left);
+                        visibleTop = Math.max(visibleTop, parentRect.top);
+                        visibleRight = Math.min(visibleRight, parentRect.right);
+                        visibleBottom = Math.min(visibleBottom, parentRect.bottom);
+                    }
+                    parent = parent.parentElement;
+                }
+
+                // Clip against viewport
+                const viewportWidth = window.innerWidth;
+                const viewportHeight = window.innerHeight;
+
+                visibleLeft = Math.max(0, visibleLeft);
+                visibleTop = Math.max(0, visibleTop);
+                visibleRight = Math.min(viewportWidth, visibleRight);
+                visibleBottom = Math.min(viewportHeight, visibleBottom);
+
+                const visibleWidth = Math.max(0, visibleRight - visibleLeft);
+                const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+
                 const style = window.getComputedStyle(clickable);
                 const borderRadius = parseFloat(style.borderRadius);
 
                 targetState.current.hovering = true;
-                targetState.current.x = rect.left + rect.width / 2;
-                targetState.current.y = rect.top + rect.height / 2;
-                targetState.current.width = rect.width + 20;
-                targetState.current.height = rect.height + 10;
+                targetState.current.x = visibleLeft + visibleWidth / 2;
+                targetState.current.y = visibleTop + visibleHeight / 2;
+                targetState.current.width = visibleWidth + 20;
+                targetState.current.height = visibleHeight + 10;
                 targetState.current.radius = borderRadius > 0 ? borderRadius + 5 : 8;
 
                 if (cursorRingRef.current) {
                     cursorRingRef.current.classList.add('active');
+                    // If hovering navbar, bring ring to front
+                    if (clickable.closest('nav')) {
+                        cursorRingRef.current.style.zIndex = '10001';
+                    } else {
+                        cursorRingRef.current.style.zIndex = ''; // Revert to CSS (9999)
+                    }
                 }
             } else {
                 targetState.current.hovering = false;
@@ -60,6 +103,7 @@ const CursorFollower = () => {
 
                 if (cursorRingRef.current) {
                     cursorRingRef.current.classList.remove('active');
+                    cursorRingRef.current.style.zIndex = ''; // Revert to CSS
                 }
             }
         };

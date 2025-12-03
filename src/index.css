@@ -24,7 +24,21 @@ h1 {
 }
 
 /* Custom Cursor Styles */
-.cursor-dot,
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10001;
+  border-radius: 50%;
+  will-change: transform;
+  width: 8px;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
 .cursor-ring {
   position: fixed;
   top: 0;
@@ -34,16 +48,6 @@ h1 {
   z-index: 9999;
   border-radius: 50%;
   will-change: transform;
-}
-
-.cursor-dot {
-  width: 8px;
-  height: 8px;
-  background-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-}
-
-.cursor-ring {
   width: 32px;
   height: 32px;
   border: 1px solid rgba(255, 255, 255, 0.5);

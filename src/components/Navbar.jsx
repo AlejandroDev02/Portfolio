@@ -31,7 +31,7 @@ const styles = {
         color: '#fff',
         position: 'sticky',
         top: 0,
-        zIndex: 1000,
+        zIndex: 10000,
     },
     logo: {
         fontSize: '1.5rem',
