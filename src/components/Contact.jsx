@@ -12,6 +12,7 @@ const Contact = () => {
                     <a href={`mailto:${contact.email}`} style={styles.button}>{contact.emailButton}</a>
                     <a href={contact.github} target="_blank" rel="noopener noreferrer" style={styles.button}>GitHub</a>
                     <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" style={styles.button}>LinkedIn</a>
+                    <a href={contact.whatsapp} target="_blank" rel="noopener noreferrer" style={styles.button}>WhatsApp</a>
                 </div>
             </div>
         </section>

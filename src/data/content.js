@@ -62,6 +62,7 @@ export const translations = {
             email: "johndoe.email@example.com",
             github: "https://github.com/johndoe",
             linkedin: "https://linkedin.com/in/johndoe",
+            whatsapp: "https://wa.me/YOUR_NUMBER",
         },
         footer: {
             copyright: "© 2024 [Name]. All rights reserved."
@@ -130,6 +131,7 @@ export const translations = {
             email: "johndoe.email@example.com",
             github: "https://github.com/johndoe",
             linkedin: "https://linkedin.com/in/johndoe",
+            whatsapp: "https://wa.me/YOUR_NUMBER",
         },
         footer: {
             copyright: "© 2024 [Nombre]. Todos los derechos reservados."

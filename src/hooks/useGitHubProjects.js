@@ -13,34 +13,49 @@ export const useGitHubProjects = (repos) => {
             }
 
             setLoading(true);
+            // Clear previous error
+            setError(null);
+
             try {
                 const projectPromises = repos.map(async (repo) => {
-                    const response = await fetch(`https://api.github.com/repos/${repo}`);
-                    if (!response.ok) {
-                        throw new Error(`Failed to fetch ${repo}`);
-                    }
-                    const data = await response.json();
-
                     try {
-                        const langResponse = await fetch(`https://api.github.com/repos/${repo}/languages`);
-                        if (langResponse.ok) {
-                            const languages = await langResponse.json();
-                            data.languages = Object.keys(languages);
-                        } else {
+                        const response = await fetch(`https://api.github.com/repos/${repo}`);
+                        if (!response.ok) {
+                            console.warn(`Failed to fetch ${repo}: ${response.statusText}`);
+                            return null;
+                        }
+                        const data = await response.json();
+
+                        try {
+                            const langResponse = await fetch(`https://api.github.com/repos/${repo}/languages`);
+                            if (langResponse.ok) {
+                                const languages = await langResponse.json();
+                                data.languages = Object.keys(languages);
+                            } else {
+                                data.languages = [];
+                            }
+                        } catch (langErr) {
+                            console.warn(`Failed to fetch languages for ${repo}`, langErr);
                             data.languages = [];
                         }
-                    } catch (langErr) {
-                        console.warn(`Failed to fetch languages for ${repo}`, langErr);
-                        data.languages = [];
-                    }
 
-                    return data;
+                        return data;
+                    } catch (err) {
+                        console.warn(`Error fetching ${repo}:`, err);
+                        return null;
+                    }
                 });
 
                 const results = await Promise.all(projectPromises);
-                setProjects(results);
+                const validProjects = results.filter(project => project !== null);
+                setProjects(validProjects);
+
+                // If all failed (e.g. rate limit), validProjects will be empty.
+                // We can optionally set an error if we want to show "No projects found" or similar,
+                // but user requested to just hide them.
+
             } catch (err) {
-                console.error("Error fetching GitHub projects:", err);
+                console.error("Unexpected error in project fetching:", err);
                 setError(err.message);
             } finally {
                 setLoading(false);
