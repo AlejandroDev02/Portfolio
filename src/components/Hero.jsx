@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import Typewriter from './Typewriter';
+import './Hero.css';
 
 const Hero = () => {
     const { content } = useLanguage();
@@ -15,7 +16,7 @@ const Hero = () => {
     return (
         <section id="hero" style={styles.section}>
             <div style={styles.content}>
-                <h1 style={styles.title}>
+                <h1 style={styles.title} className={showContent ? 'levitating' : ''}>
                     <Typewriter
                         text={hero.title}
                         speed={100}

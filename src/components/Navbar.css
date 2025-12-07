@@ -1,0 +1,109 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(51, 51, 51, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+    animation: slide-down 0.8s ease-out;
+}
+
+@keyframes slide-down {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    /* Space between logo and text */
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+}
+
+.logo-container:hover {
+    transform: scale(1.02);
+}
+
+.logo-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.logo-text {
+    font-size: 1.25rem;
+    font-weight: bold;
+    /* Initial state: invisible */
+    opacity: 0;
+
+    color: #fff;
+
+    /* Animation: spawn (once) */
+    animation: spawnText 0.8s ease-out 0.8s forwards;
+    /* Starts after navbar drop (0.8s delay) */
+}
+
+@keyframes spawnText {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-text {
+        display: none;
+    }
+
+    /* Adjust padding on mobile if needed */
+    .navbar {
+        padding: 0.8rem 1rem;
+    }
+}
+
+.navbar-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    position: relative;
+    display: block;
+    padding: 0.5rem;
+}
+
+.nav-link.active {
+    color: #646cff;
+    text-shadow: 0 0 10px rgba(100, 108, 255, 0.5);
+    font-weight: bold;
+}

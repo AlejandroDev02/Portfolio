@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import MagneticButton from './MagneticButton';
+import logoImage from '../resources/logo.jpg';
+import './Navbar.css';
 
 const Navbar = () => {
     const { content } = useLanguage();
@@ -43,16 +45,26 @@ const Navbar = () => {
         }
     };
 
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+
     return (
-        <nav style={styles.nav}>
-            <div style={styles.logo}>{navbar.logo}</div>
-            <ul style={styles.links}>
+        <nav className="navbar">
+            <div className="logo-container" onClick={scrollToTop}>
+                <img src={logoImage} alt="Logo" className="logo-image" />
+                <span className="logo-text">Alejandro's Workshop</span>
+            </div>
+            <ul className="navbar-links">
                 <li>
                     <MagneticButton>
                         <a
                             href="#hero"
                             onClick={(e) => handleNavClick(e, 'hero')}
-                            style={{ ...styles.link, ...(activeSection === 'hero' ? styles.activeLink : {}) }}
+                            className={`nav-link ${activeSection === 'hero' ? 'active' : ''}`}
                         >
                             {navbar.home}
                         </a>
@@ -63,7 +75,7 @@ const Navbar = () => {
                         <a
                             href="#about"
                             onClick={(e) => handleNavClick(e, 'about')}
-                            style={{ ...styles.link, ...(activeSection === 'about' ? styles.activeLink : {}) }}
+                            className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}
                         >
                             {navbar.about}
                         </a>
@@ -74,7 +86,7 @@ const Navbar = () => {
                         <a
                             href="#skills"
                             onClick={(e) => handleNavClick(e, 'skills')}
-                            style={{ ...styles.link, ...(activeSection === 'skills' ? styles.activeLink : {}) }}
+                            className={`nav-link ${activeSection === 'skills' ? 'active' : ''}`}
                         >
                             {navbar.skills}
                         </a>
@@ -85,7 +97,7 @@ const Navbar = () => {
                         <a
                             href="#education"
                             onClick={(e) => handleNavClick(e, 'education')}
-                            style={{ ...styles.link, ...(activeSection === 'education' ? styles.activeLink : {}) }}
+                            className={`nav-link ${activeSection === 'education' ? 'active' : ''}`}
                         >
                             {navbar.education}
                         </a>
@@ -96,7 +108,7 @@ const Navbar = () => {
                         <a
                             href="#projects"
                             onClick={(e) => handleNavClick(e, 'projects')}
-                            style={{ ...styles.link, ...(activeSection === 'projects' ? styles.activeLink : {}) }}
+                            className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`}
                         >
                             {navbar.projects}
                         </a>
@@ -107,7 +119,7 @@ const Navbar = () => {
                         <a
                             href="#contact"
                             onClick={(e) => handleNavClick(e, 'contact')}
-                            style={{ ...styles.link, ...(activeSection === 'contact' ? styles.activeLink : {}) }}
+                            className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}
                         >
                             {navbar.contact}
                         </a>
@@ -116,48 +128,6 @@ const Navbar = () => {
             </ul>
         </nav>
     );
-};
-
-const styles = {
-    nav: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '1rem 2rem',
-        backgroundColor: 'rgba(51, 51, 51, 0.8)',
-        backdropFilter: 'blur(10px)',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-        color: '#fff',
-        position: 'sticky',
-        top: 0,
-        zIndex: 10000,
-        animation: 'slide-down 0.8s ease-out',
-    },
-    logo: {
-        fontSize: '1.5rem',
-        fontWeight: 'bold',
-    },
-    links: {
-        display: 'flex',
-        listStyle: 'none',
-        gap: '1.5rem',
-        margin: 0,
-        padding: 0,
-    },
-    link: {
-        color: '#fff',
-        textDecoration: 'none',
-        fontSize: '1rem',
-        transition: 'color 0.3s ease, text-shadow 0.3s ease',
-        position: 'relative',
-        display: 'block', // Ensure block for magnetic effect
-        padding: '0.5rem', // Add padding for hit area
-    },
-    activeLink: {
-        color: '#646cff',
-        textShadow: '0 0 10px rgba(100, 108, 255, 0.5)',
-        fontWeight: 'bold',
-    }
 };
 
 export default Navbar;
