@@ -1,6 +1,7 @@
 import { useLanguage } from '../context/LanguageContext';
 import FocusCard from './FocusCard';
 import ScrollReveal from './ScrollReveal';
+import profilePicture from '../resources/profilepicture.png';
 
 const About = () => {
     const { content } = useLanguage();
@@ -14,7 +15,7 @@ const About = () => {
                         <FocusCard style={styles.imageCard}>
                             <div style={styles.imageContainer}>
                                 <img
-                                    src="src/resources/profilepicture.png"
+                                    src={profilePicture}
                                     alt="Profile"
                                     style={styles.image}
                                 />
