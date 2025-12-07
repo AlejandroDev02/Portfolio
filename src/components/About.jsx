@@ -44,7 +44,7 @@ const styles = {
     },
     heading: {
         fontSize: '2.5rem',
-        marginBottom: '3rem',
+        marginBottom: '1.5rem',
         textShadow: '0 2px 4px rgba(0,0,0,0.3)',
     },
     contentWrapper: {

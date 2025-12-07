@@ -28,7 +28,7 @@ export const translations = {
                 },
                 {
                     degree: "Data Science Engineering",
-                    institution: "ITM Instituto Tecnologico Metropolitano",
+                    institution: "ITM Instituto Tecnológico Metropolitano",
                     period: "2024 - currently"
                 }
             ]
@@ -42,7 +42,7 @@ export const translations = {
                 "TypeScript",
                 "Java",
                 "Python",
-                "Power Bi",
+                "Power BI",
                 "React",
                 "Node.js",
                 "Spring/Spring Boot",
@@ -68,7 +68,7 @@ export const translations = {
             title: "Get In Touch",
             emailButton: "Email Me",
             email: "nilzon.gomez17@gmail.com",
-            github: "https://github.com/Verschlingendenacht",
+            github: "https://github.com/AlejandroDev02",
             linkedin: "https://linkedin.com/in/johndoe",
             whatsapp: "https://wa.me/573219628500",
         },
@@ -105,7 +105,7 @@ export const translations = {
                 },
                 {
                     degree: "Ingeniería en Ciencia de Datos",
-                    institution: "ITM Instituto Tecnologico Metropolitano",
+                    institution: "ITM Instituto Tecnológico Metropolitano",
                     period: "2024 - Actualidad"
                 }
             ]
@@ -119,7 +119,7 @@ export const translations = {
                 "TypeScript",
                 "Java",
                 "Python",
-                "Power Bi",
+                "Power BI",
                 "React",
                 "Node.js",
                 "Spring/Spring Boot",
@@ -145,7 +145,7 @@ export const translations = {
             title: "Contáctame",
             emailButton: "Envíame un correo",
             email: "nilzon.gomez17@gmail.com",
-            github: "https://github.com/Verschlingendenacht",
+            github: "https://github.com/AlejandroDev02",
             linkedin: "https://linkedin.com/in/johndoe",
             whatsapp: "https://wa.me/573219628500",
         },

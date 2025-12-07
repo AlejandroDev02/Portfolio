@@ -18,9 +18,7 @@ const Contact = () => {
                         <MagneticButton>
                             <a href={contact.github} target="_blank" rel="noopener noreferrer" style={styles.button}>GitHub</a>
                         </MagneticButton>
-                        <MagneticButton>
-                            <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" style={styles.button}>LinkedIn</a>
-                        </MagneticButton>
+
                         <MagneticButton>
                             <a href={contact.whatsapp} target="_blank" rel="noopener noreferrer" style={styles.button}>WhatsApp</a>
                         </MagneticButton>
